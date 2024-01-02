@@ -36,7 +36,7 @@ $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
 # Configurar a ação da tarefa (executar o winword.exe em todos os arquivos .doc)
-$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\teste\Desktop\*.doc) do start "" "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE" "%F"'
+$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Desktop\*.doc) do start "" "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE" "%F"'
 
 # Definir a data e hora de início
 $startTime = (Get-Date).AddMinutes(1)
@@ -45,5 +45,11 @@ $startTime = (Get-Date).AddMinutes(1)
 $trigger = New-ScheduledTaskTrigger -Once -At $startTime -RepetitionInterval ([TimeSpan]::FromMinutes(1))
 
 # Registrar a tarefa agendada
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin"  -User "automate"
+
+# Criar tarefa agendada
+$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\uTorrent\uTorrent.exe"
+$trigger = New-ScheduledTaskTrigger -AtStartup
+
+Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "uTorrentStartupTask" -User "NT AUTHORITY\SYSTEM"
 
