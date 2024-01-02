@@ -17,9 +17,14 @@ $DownloadPath = "C:\Windows\Temp\FileZilla.exe"
 # Baixe o arquivo usando o URL
 Invoke-WebRequest -Uri $FileZillaDownloadURL -OutFile $DownloadPath
 
-# Execute o instalador do Trigone
+# Execute o instalador do FileZilla
 Start-Process -FilePath $DownloadPath -Wait
 
 # Aguarde a instalação ser concluÃ­da
 Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
+
+Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\Administrator\Desktop\instruções.txt
+
+
+
 
