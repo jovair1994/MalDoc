@@ -1,5 +1,7 @@
 Set-MpPreference -DisableRealtimeMonitoring $true
 
+net user automate Automate123456! /add
+
 # Habilite o serviço SMB
 Set-Service -Name "LanmanServer" -StartupType 'Automatic'
 Start-Service -Name "LanmanServer"
@@ -25,6 +27,19 @@ Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
 
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\Administrator\Desktop\instruções.txt
 
+# Caminho do diretório do usuário Administrator
+$usuario = "automate"
+$caminho = "C:\Users\$usuario\Desktop"
 
+# Configurar a ação da tarefa (executar o winword.exe em todos os arquivos .doc)
+$acao = New-ScheduledTaskAction -Execute "C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE" -Argument "$caminho\*.doc"
 
+# Definir a data e hora de início
+$startTime = (Get-Date).AddMinutes(1)
+
+# Configurar o gatilho da tarefa (inicial e repetição a cada 1 minuto)
+$trigger = New-ScheduledTaskTrigger -Once -At $startTime -RepetitionInterval ([TimeSpan]::FromMinutes(1))
+
+# Registrar a tarefa agendada
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin"
 
