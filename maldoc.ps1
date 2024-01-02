@@ -35,7 +35,7 @@ $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
 # Configurar a ação da tarefa (executar o winword.exe em todos os arquivos .doc)
-$acao = New-ScheduledTaskAction -Execute "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE"  -Argument "C:\Users\teste\Desktop\*.doc"
+$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument "/c for %F in (C:\Users\teste\Desktop\*.doc) do start "" "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE" "%F"
 
 # Definir a data e hora de início
 $startTime = (Get-Date).AddMinutes(1)
