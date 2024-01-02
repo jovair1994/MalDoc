@@ -30,7 +30,7 @@ Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%
 ### LINK PARA DOWNLOAD DO OFFICE 2016 - INSTALAR WORD E EXCEL ###
 ### https://drive.google.com/open?id=1tXH6amC9lOibnBLKt_K_6OPI6mjbdUj3&authuser=0 ###
 
-# Caminho do diretório do usuário Administrator
+# Caminho do diretório do usuário automate
 $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
