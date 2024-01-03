@@ -1,4 +1,8 @@
-# DAR PERMISSÃO PASTA DO UTORRENT PRA AUTOMATE E CRIAR O REPO DO FILEZILLA PARA PASTA DO AUTOMATE, INSTALAR OS PROGRAMAS COMO AUTOMATE
+# DAR PERMISSÃO PASTA DO UTORRENT PRA AUTOMATE E CRIAR O REPO DO FILEZILLA PARA PASTA DO AUTOMATE, INSTALAR OS PROGRAMAS COMO AUTOMATE Press Win + R to launch the Run command box. Type gpedit.msc in the text input area and press the Enter key.
+#Group Policy Editor will launch. Click on the Computer Configuration option on the home page.
+#Navigate to Administrative Templates > Windows Components.
+#Locate and click on the Microsoft Defender Antivirus option. Double-click on the Turn-off Microsoft Defender Antivirus policy to edit its settings.
+# USAR AUTOLOGON PARA FAZER O AUTOMATE LOGAR SÓ 
 
 Set-MpPreference -DisableRealtimeMonitoring $true
 Add-MpPreference -ExclusionPath "C:\"
