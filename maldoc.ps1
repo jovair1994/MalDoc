@@ -26,6 +26,36 @@ Start-Process -FilePath $DownloadPath -Wait
 # Aguarde a instalação ser concluída
 Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
 
+# Defina a URL do download do uTorrent
+$UtorrentDownloadURL = "https://www.exploit-db.com/apps/0e2137502449143f04133498b9621a2e-utorrent.exe"
+
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\utorrent.exe"
+
+# Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $UtorrentDownloadURL -OutFile $DownloadPath
+
+# Execute o instalador do uTorrent
+Start-Process -FilePath $DownloadPath -Wait
+
+# Aguarde a instalação ser concluída
+Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
+
+# Defina a URL do download do popcorn
+$PopcornDownloadURL = "https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.9/Popcorn-Time-0.4.9-win64-Setup.exe"
+
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\popcorn.exe"
+
+# Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $PopcornDownloadURL -OutFile $DownloadPath
+
+# Execute o instalador do uTorrent
+Start-Process -FilePath $DownloadPath -Wait
+
+# Aguarde a instalação ser concluída
+Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
+
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Desktop\instruções.txt
 
 ### LINK PARA DOWNLOAD DO OFFICE 2016 - INSTALAR WORD E EXCEL ###
