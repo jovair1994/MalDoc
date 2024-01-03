@@ -52,9 +52,6 @@ Invoke-WebRequest -Uri $FileZillaDownloadURL -OutFile $DownloadPath
 # Execute o instalador do FileZilla
 Start-Process -FilePath $DownloadPath -Wait
 
-# Aguarde a instalação ser concluída
-Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
-
 # Defina a URL do download do uTorrent
 $UtorrentDownloadURL = "https://www.exploit-db.com/apps/0e2137502449143f04133498b9621a2e-utorrent.exe"
 
@@ -66,9 +63,6 @@ Invoke-WebRequest -Uri $UtorrentDownloadURL -OutFile $DownloadPath
 
 # Execute o instalador do uTorrent
 Start-Process -FilePath $DownloadPath -Wait
-
-# Aguarde a instalação ser concluída
-Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
 
 # Defina a URL do download do popcorn
 $PopcornDownloadURL = "https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.9/Popcorn-Time-0.4.9-win64-Setup.exe"
@@ -82,9 +76,6 @@ Invoke-WebRequest -Uri $PopcornDownloadURL -OutFile $DownloadPath
 # Execute o instalador do uTorrent
 Start-Process -FilePath $DownloadPath -Wait
 
-# Aguarde a instalação ser concluída
-Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
-
 # Defina a URL do download do codemeter
 $CodeMeterDownloadURL = "https://www.wibu.com/support/user/user-software/file/download/12529.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0&cHash=8dba7ab094dec6267346f04fce2a2bcd"
 
@@ -96,9 +87,6 @@ Invoke-WebRequest -Uri $CodeMeterDownloadURL -OutFile $DownloadPath
 
 # Execute o instalador do codemeter
 Start-Process -FilePath $DownloadPath -Wait
-
-# Aguarde a instalação ser concluída
-Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
 
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Desktop\instruções.txt
 
