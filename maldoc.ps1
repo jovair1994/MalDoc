@@ -51,5 +51,5 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin
 $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\uTorrent\uTorrent.exe"
 $trigger = New-ScheduledTaskTrigger -AtStartup
 
-Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "uTorrentStartupTask" -User "NT AUTHORITY\SYSTEM"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "uTorrentStartupTask" -User "NT AUTHORITY\SYSTEM"
 
