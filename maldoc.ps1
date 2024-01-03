@@ -56,6 +56,22 @@ Start-Process -FilePath $DownloadPath -Wait
 # Aguarde a instalação ser concluída
 Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
 
+
+# Defina a URL do download do codemeter
+$CodeMeterDownloadURL = "https://www.wibu.com/support/user/user-software/file/download/12529.html?tx_wibudownloads_downloadlist%5BdirectDownload%5D=directDownload&tx_wibudownloads_downloadlist%5BuseAwsS3%5D=0&cHash=8dba7ab094dec6267346f04fce2a2bcd"
+
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\codemeter.exe"
+
+# Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $CodeMeterDownloadURL -OutFile $DownloadPath
+
+# Execute o instalador do codemeter
+Start-Process -FilePath $DownloadPath -Wait
+
+# Aguarde a instalação ser concluída
+Start-Sleep -Seconds 100  # Ajuste o tempo de espera conforme necessário
+
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Desktop\instruções.txt
 
 ### LINK PARA DOWNLOAD DO OFFICE 2016 - INSTALAR WORD E EXCEL ###
