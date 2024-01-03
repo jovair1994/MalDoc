@@ -34,9 +34,11 @@ New-Item -ItemType Directory -Path "C:\Windows\Temp\Autologon"
 
 Expand-Archive -Path "C:\Windows\Temp\Autologon.zip" -DestinationPath "C:\Windows\Temp\Autologon\"
 
-Start-Process -FilePath $DownloadPath -Wait
+Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
 Restart-Computer
+
+# Aqui o usuário automate já estará logado, a tarefa agendada do Word só funciona assim
 
 # Defina a URL do download do FileZilla
 $FileZillaDownloadURL = "https://github.com/jovair1994/MalDoc/raw/main/FileZilla_Server_1.8.0_win64-setup.exe"
@@ -124,4 +126,6 @@ $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\uTorrent\uTorre
 $trigger = New-ScheduledTaskTrigger -AtStartup
 
 Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "uTorrentStartupTask" -User "NT AUTHORITY\SYSTEM"
+
+Restart-Computer
 
