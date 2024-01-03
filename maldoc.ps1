@@ -103,11 +103,11 @@ $acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\User
 # Definir a data e hora de início
 $startTime = (Get-Date).AddMinutes(1)
 
-# Configurar o gatilho da tarefa (inicial e repetição a cada 1 minuto)
-$trigger = New-ScheduledTaskTrigger -AtStartup -RepetitionInterval ([TimeSpan]::FromMinutes(1))
+# Configurar o gatilho da tarefa (inicial e repetição a cada 5 minutos)
+$trigger = New-ScheduledTaskTrigger -AtStartup 
 
 # Registrar a tarefa agendada
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin"  -User "automate"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin" -User "automate"
 
 # Criar tarefa agendada
 $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\uTorrent\uTorrent.exe"
