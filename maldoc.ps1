@@ -92,6 +92,10 @@ Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.d
 ### LINK PARA DOWNLOAD DO OFFICE 2016 - INSTALAR WORD E EXCEL ###
 ### https://drive.google.com/open?id=1tXH6amC9lOibnBLKt_K_6OPI6mjbdUj3&authuser=0 ###
 
+Restart-Computer
+
+### EXECUTAR ESSA PARTE COMO USUÁRIO ADMINISTRATOR ###
+
 # Caminho do diretório do usuário automate
 $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
@@ -114,6 +118,10 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "uTorrentStartu
 
 
 icacls "C:\Program Files (x86)\uTorrent" /grant:r "Usuários:(OI)(CI)F" /t
+
+type 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
+
+type cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
 
 Restart-Computer
 
