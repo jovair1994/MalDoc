@@ -93,7 +93,7 @@ $acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\User
 $startTime = (Get-Date).AddMinutes(1)
 
 # Configurar o gatilho da tarefa (inicial e repetição a cada 1 minuto)
-$trigger = New-ScheduledTaskTrigger -Once -At $startTime -RepetitionInterval ([TimeSpan]::FromMinutes(1))
+$trigger = New-ScheduledTaskTrigger -AtStartup -RepetitionInterval ([TimeSpan]::FromMinutes(1))
 
 # Registrar a tarefa agendada
 Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCadaMin"  -User "automate"
