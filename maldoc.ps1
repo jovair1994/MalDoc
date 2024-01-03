@@ -1,3 +1,5 @@
+# DAR PERMISSÃO PASTA DO UTORRENT PRA AUTOMATE E CRIAR O REPO DO FILEZILLA PARA PASTA DO AUTOMATE
+
 Set-MpPreference -DisableRealtimeMonitoring $true
 Add-MpPreference -ExclusionPath "C:\"
 
