@@ -49,17 +49,21 @@ Invoke-WebRequest -Uri $FileZillaDownloadURL -OutFile $DownloadPath
 # Execute o instalador do FileZilla
 Start-Process -FilePath $DownloadPath -Wait
 
-# Defina a URL do download do uTorrent
-$UtorrentDownloadURL = "https://www.exploit-db.com/apps/0e2137502449143f04133498b9621a2e-utorrent.exe"
+# Defina a URL do download do firefox
+$UtorrentDownloadURL = "https://www.exploit-db.com/apps/e22b1d55b4d450a18bd7b9ddc8b395b7-Firefox_Setup_3.6.8.exe"
 
 # Defina o caminho de destino onde o arquivo será baixado
-$DownloadPath = "C:\Windows\Temp\utorrent.exe"
+$DownloadPath = "C:\Windows\Temp\firefox.exe"
 
 # Baixe o arquivo usando o URL
 Invoke-WebRequest -Uri $UtorrentDownloadURL -OutFile $DownloadPath
 
-# Execute o instalador do uTorrent
+# Execute o instalador do firefox
 Start-Process -FilePath $DownloadPath -Wait
+
+cacls "C:\Program Files (x86)\Mozilla Firefox" /E /G Users:W
+
+Register-ScheduledTask -Action (New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe") -Trigger (New-ScheduledTaskTrigger -AtStartup) -Settings (New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries) -TaskName "Firefox"
 
 # Defina a URL do download do popcorn
 $PopcornDownloadURL = "https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.9/Popcorn-Time-0.4.9-win64-Setup.exe"
