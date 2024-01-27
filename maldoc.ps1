@@ -63,7 +63,7 @@ Start-Process -FilePath $DownloadPath -Wait
 
 cacls "C:\Program Files (x86)\Mozilla Firefox" /E /G Users:W
 
-Register-ScheduledTask -Action (New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe") -Trigger (New-ScheduledTaskTrigger -AtStartup) -Settings (New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries) -TaskName "Firefox"
+Register-ScheduledTask -Action (New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe") -Trigger (New-ScheduledTaskTrigger -AtStartup) -Settings (New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries) -TaskName "Firefox" -User "Administrator"
 
 # Defina a URL do download do popcorn
 $PopcornDownloadURL = "https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.4.9/Popcorn-Time-0.4.9-win64-Setup.exe"
