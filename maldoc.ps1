@@ -91,10 +91,21 @@ Start-Process -FilePath $DownloadPath -Wait
 
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Desktop\instruções.txt
 
-Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.doc"  -Outfile C:\Users\automate\Desktop\jroberto.doc
+Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.doc"  -Outfile C:\Users\automate\Desktop\jroberto.odt
 
-### LINK PARA DOWNLOAD DO OFFICE 2016 - INSTALAR WORD E EXCEL ###
-### https://drive.google.com/open?id=1tXH6amC9lOibnBLKt_K_6OPI6mjbdUj3&authuser=0 ###
+
+# Defina a URL do download do LibreOffice
+$LibreOfficeDownloadURL = "https://www.libreoffice.org/donate/dl/win-x86_64/7.6.4/pt-BR/LibreOffice_7.6.4_Win_x86-64.msi"
+
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\libre.exe"
+
+# Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $LibreOfficeDownloadURL -OutFile $DownloadPath
+
+# Execute o instalador do codemeter
+Start-Process -FilePath $DownloadPath -Wait
+
 
 Restart-Computer
 
