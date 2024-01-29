@@ -115,7 +115,7 @@ Restart-Computer
 $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
-# Configurar a ação da tarefa (executar o winword.exe em todos os arquivos .doc)
+# Configurar a ação da tarefa (executar o swriter.exe em todos os arquivos .odt)
 $acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Desktop\*.odt) do start "" "C:\Program Files\LibreOffice\program\swriter.exe" "%F"'
 
 # Configurar o gatilho da tarefa (inicial e repetição a cada 5 minutos)
@@ -127,12 +127,8 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min
 
 # Criar tarefa agendada
 $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
-$trigger = New-ScheduledTaskTrigger -AtStartup
-
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxStartupTask" -User "Administrator"
-
-
-icacls "C:\Program Files (x86)\uTorrent" /grant:r "Usuários:(OI)(CI)F" /t
+$trigger = New-ScheduledTaskTrigger -AtLogon -User "teste"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxLogonTask"
 
 type 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
 
