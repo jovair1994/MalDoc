@@ -129,7 +129,7 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min
 $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
 $trigger = New-ScheduledTaskTrigger -AtStartup
 
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "uTorrentStartupTask" -User "Administrator"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxStartupTask" -User "Administrator"
 
 
 icacls "C:\Program Files (x86)\uTorrent" /grant:r "Usuários:(OI)(CI)F" /t
