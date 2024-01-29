@@ -5,7 +5,7 @@ Add-MpPreference -ExclusionExtension ".exe"
 Add-MpPreference -ExclusionExtension ".ps1"
 Add-MpPreference -ExclusionExtension ".dll"
 Add-MpPreference -ExclusionExtension ".doc"
-Set-MpPreference -ExclusionProcess "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE"
+Set-MpPreference -ExclusionProcess "C:\Program Files\LibreOffice\program\swriter.exe"
 Set-MpPreference -ExclusionProcess "powershell.exe"
 
 net user automate A123456! /add
@@ -35,7 +35,7 @@ Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
 Restart-Computer
 
-# Aqui o usuário automate já estará logado, a tarefa agendada do Word só funciona assim
+# Aqui o usuário automate já estará logado, a tarefa agendada do Writer só funciona assim
 
 # Defina a URL do download do FileZilla
 $FileZillaDownloadURL = "https://github.com/jovair1994/MalDoc/raw/main/FileZilla_Server_1.8.0_win64-setup.exe"
@@ -116,7 +116,7 @@ $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
 # Configurar a ação da tarefa (executar o winword.exe em todos os arquivos .doc)
-$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Desktop\*.doc) do start "" "C:\Program Files\Microsoft Office\Office16\WINWORD.EXE" "%F"'
+$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Desktop\*.odt) do start "" "C:\Program Files\LibreOffice\program\swriter.exe" "%F"'
 
 # Configurar o gatilho da tarefa (inicial e repetição a cada 5 minutos)
 $trigger = New-ScheduledTaskTrigger -AtStartup 
@@ -126,7 +126,7 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min
 
 
 # Criar tarefa agendada
-$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\uTorrent\uTorrent.exe"
+$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
 $trigger = New-ScheduledTaskTrigger -AtStartup
 
 Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "uTorrentStartupTask" -User "Administrator"
