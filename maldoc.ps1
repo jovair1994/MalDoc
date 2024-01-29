@@ -95,7 +95,7 @@ Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.d
 
 
 # Defina a URL do download do LibreOffice
-$LibreOfficeDownloadURL = "https://www.libreoffice.org/donate/dl/win-x86_64/7.6.4/pt-BR/LibreOffice_7.6.4_Win_x86-64.msi"
+$LibreOfficeDownloadURL = "https://download.documentfoundation.org/libreoffice/stable/7.6.4/win/x86_64/LibreOffice_7.6.4_Win_x86-64.msi"
 
 # Defina o caminho de destino onde o arquivo será baixado
 $DownloadPath = "C:\Windows\Temp\libre.exe"
