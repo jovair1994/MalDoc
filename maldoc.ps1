@@ -122,7 +122,7 @@ $acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\User
 $trigger = New-ScheduledTaskTrigger -AtStartup 
 
 # Registrar a tarefa agendada
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeWordCada5Min" -User "automate"
+Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min" -User "automate"
 
 
 # Criar tarefa agendada
