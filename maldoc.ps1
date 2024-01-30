@@ -127,11 +127,28 @@ $trigger = New-ScheduledTaskTrigger -AtStartup
 # Registrar a tarefa agendada
 Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min" -User "automate"
 
+# Defina a URL do download do nssm
+$AutologonDownloadURL="http://nssm.cc/release/nssm-2.24.zip"
 
-# Criar tarefa agendada
-$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
-$trigger = New-ScheduledTaskTrigger -AtLogon -User "Administrator"
-Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxLogonTask"
+# Defina o caminho de destino onde o arquivo será baixado
+$DownloadPath = "C:\Windows\Temp\nssm.zip"
+
+#Baixe o arquivo usando o URL
+Invoke-WebRequest -Uri $AutologonDownloadURL -OutFile $DownloadPath
+
+New-Item -ItemType Directory -Path "C:\Windows\Temp\nssm"
+
+Expand-Archive -Path "C:\Windows\Temp\nssm.zip" -DestinationPath "C:\Windows\Temp\nssm\"
+
+Start-Process -FilePath C:\Windows\Temp\nssm\nssm.exe Firefox0
+
+# A PARTIR DAQUI, O DEPLOY É GRAFICO. DEVEMOS APONTAR O LOCAL ONDE O EXECUTÁVEL DO FIREFOX ESTARÁ
+
+
+## Criar tarefa agendada
+#$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
+#$trigger = New-ScheduledTaskTrigger -AtLogon -User "Administrator"
+#Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxLogonTask"
 
 echo 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
 
