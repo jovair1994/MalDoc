@@ -137,5 +137,7 @@ echo 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
 
 echo cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
 
+Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled False
+
 Restart-Computer
 
