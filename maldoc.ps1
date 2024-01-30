@@ -35,7 +35,7 @@ Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
 Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
-Restart-Computer
+
 
 # Aqui o usuário automate já estará logado, a tarefa agendada do Writer só funciona assim
 
@@ -109,7 +109,7 @@ Invoke-WebRequest -Uri $LibreOfficeDownloadURL -OutFile $DownloadPath
 Start-Process -FilePath $DownloadPath -Wait
 
 
-Restart-Computer
+
 
 ### EXECUTAR ESSA PARTE COMO USUÁRIO ADMINISTRATOR ###
 
@@ -155,5 +155,5 @@ echo cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
 
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled False
 
-Restart-Computer
+
 
