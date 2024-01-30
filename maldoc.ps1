@@ -119,7 +119,7 @@ $usuario = "automate"
 $caminho = "C:\Users\$usuario\Desktop"
 
 # Configurar a ação da tarefa (executar o swriter.exe em todos os arquivos .odt)
-$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Desktop\*.odt) do start "" "C:\Program Files\LibreOffice\program\swriter.exe" "%F"'
+$acao = New-ScheduledTaskAction -Execute "cmd"  -Argument '/c for %F in (C:\Users\automate\Documents\*.odt) do start "" "C:\Program Files\LibreOffice\program\swriter.exe" "%F"'
 
 # Configurar o gatilho da tarefa (inicial e repetição a cada 5 minutos)
 $trigger = New-ScheduledTaskTrigger -AtStartup 
