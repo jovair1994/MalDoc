@@ -34,6 +34,8 @@ Expand-Archive -Path "C:\Windows\Temp\Autologon.zip" -DestinationPath "C:\Window
 
 Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
+Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
+
 Restart-Computer
 
 # Aqui o usuário automate já estará logado, a tarefa agendada do Writer só funciona assim
@@ -99,7 +101,7 @@ Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.d
 $LibreOfficeDownloadURL = "https://download.documentfoundation.org/libreoffice/stable/7.6.4/win/x86_64/LibreOffice_7.6.4_Win_x86-64.msi"
 
 # Defina o caminho de destino onde o arquivo será baixado
-$DownloadPath = "C:\Windows\Temp\libre.exe"
+$DownloadPath = "C:\Windows\Temp\libre.msi"
 
 # Baixe o arquivo usando o URL
 Invoke-WebRequest -Uri $LibreOfficeDownloadURL -OutFile $DownloadPath
@@ -128,12 +130,12 @@ Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "ExeOdtCada5Min
 
 # Criar tarefa agendada
 $acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
-$trigger = New-ScheduledTaskTrigger -AtLogon -User "teste"
+$trigger = New-ScheduledTaskTrigger -AtLogon -User "Administrator"
 Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxLogonTask"
 
-type 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
+echo 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
 
-type cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
+echo cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
 
 Restart-Computer
 
