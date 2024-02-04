@@ -35,8 +35,6 @@ Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
 Start-Process -FilePath C:\Windows\Temp\Autologon\Autologon.exe -Wait
 
-
-
 # Aqui o usuário automate já estará logado, a tarefa agendada do Writer só funciona assim
 
 # Defina a URL do download do FileZilla
@@ -108,9 +106,6 @@ Invoke-WebRequest -Uri $LibreOfficeDownloadURL -OutFile $DownloadPath
 # Execute o instalador do codemeter
 Start-Process -FilePath $DownloadPath -Wait
 
-
-
-
 ### EXECUTAR ESSA PARTE COMO USUÁRIO ADMINISTRATOR ###
 
 # Caminho do diretório do usuário automate
@@ -142,7 +137,6 @@ Expand-Archive -Path "C:\Windows\Temp\nssm.zip" -DestinationPath "C:\Windows\Tem
 Start-Process -FilePath C:\Windows\Temp\nssm\nssm.exe Firefox0
 
 # A PARTIR DAQUI, O DEPLOY É GRAFICO. DEVEMOS APONTAR O LOCAL ONDE O EXECUTÁVEL DO FIREFOX ESTARÁ
-
 
 ## Criar tarefa agendada
 #$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
