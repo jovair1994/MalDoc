@@ -103,11 +103,11 @@ Start-Sleep -Seconds 10
 
 Restart-Computer
 
-Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Desktop\instruções.txt
+Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/instru%C3%A7%C3%B5es.txt" -Outfile C:\Users\automate\Documents\instruções.txt
 
 Invoke-WebRequest -Uri "https://github.com/jovair1994/MalDoc/raw/main/jroberto.doc"  -Outfile C:\Users\automate\Documents\jroberto.odt
 
-
+Start-Sleep -Seconds 10
 # Defina a URL do download do LibreOffice
 $LibreOfficeDownloadURL = "https://download.documentfoundation.org/libreoffice/stable/7.6.4/win/x86_64/LibreOffice_7.6.4_Win_x86-64.msi"
 
@@ -118,11 +118,10 @@ $DownloadPath = "C:\Windows\Temp\libre.msi"
 Invoke-WebRequest -Uri $LibreOfficeDownloadURL -OutFile $DownloadPath
 
 Start-Sleep -Seconds 10
-# Execute o instalador do codemeter
+# Execute o instalador do libreoffice
 Start-Process -FilePath $DownloadPath -Wait
 
 Start-Sleep -Seconds 10
-### EXECUTAR ESSA PARTE COMO USUÁRIO ADMINISTRATOR ###
 
 # Caminho do diretório do usuário automate
 $usuario = "automate"
@@ -150,17 +149,12 @@ New-Item -ItemType Directory -Path "C:\Windows\Temp\nssm"
 
 Expand-Archive -Path "C:\Windows\Temp\nssm.zip" -DestinationPath "C:\Windows\Temp\nssm\"
 
-Start-Process -FilePath C:\Windows\Temp\nssm\nssm.exe Firefox0
-
-# A PARTIR DAQUI, O DEPLOY É GRAFICO. DEVEMOS APONTAR O LOCAL ONDE O EXECUTÁVEL DO FIREFOX ESTARÁ
-
-## Criar tarefa agendada
-#$acao = New-ScheduledTaskAction -Execute "C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
-#$trigger = New-ScheduledTaskTrigger -AtLogon -User "Administrator"
-#Register-ScheduledTask -Action $acao -Trigger $trigger -TaskName "FireFoxLogonTask"
+C:\Windows\Temp\nssm\nssm-2.24\win64\nssm.exe install Firefox-Update
 
 echo 88c0e20683793760bcb20b902a16436f > C:\Users\Administrator\Desktop\proof.txt
 
 echo cb8b20b7939036f8c0e2a16420683760 > C:\Users\automate\Desktop\flag.txt
 
 Set-NetFirewallProfile -Profile Domain, Public, Private -Enabled False
+
+Restart-Computer
